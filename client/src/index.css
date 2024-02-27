@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #48392A;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,12 +15,10 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #43281C;
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
-}
+
 
 body {
   margin: 0;
@@ -48,7 +46,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #48392A;
 }
 button:focus,
 button:focus-visible {
@@ -76,14 +74,69 @@ button:focus-visible {
 }
 
 /* Custom Styles */
+header nav a{
+  color: #eee;
+}
+
+
 header nav a:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 header nav a:hover, header nav a.active {
   text-decoration: underline;
 }
 
+header nav button.create-btn {
+  background-color: none;
+  border: 2px solid #FBF2C0;
+  padding: 5px 10px 6px;
+  transition: all .3s;
+}
+
+header nav button.create-btn:hover {
+  background: #FBF2C0;
+  color: #F96F5D;
+}
+
+/* Note For Styles */
+.note-form{
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 75vw;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 50px 25px 75px;
+  border-radius: 5px;
+  color: #F96F5D;
+}
+.note-form h1{
+  font-size: 2.3rem;
+}
+
+.note-form form > *{
+  padding: 15px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 7px;
+}
+
+.note-form form input{
+  font-size: 1rem;
+  outline-color: #48392A;
+}
+
+.note-form form button{
+  background: #48392A;
+}
+
+.note-form form button.cancel-btn{
+  background: #777;
+}
+
+/* Home page Styles */
 .note{
   border: 1px solid #aaa;
   padding: 15px;
@@ -95,11 +148,11 @@ header nav a:hover, header nav a.active {
 }
 
 .note .edit-btn{
-  background: pink;
+  background: #43281C;
 }
 
 .note .delete-btn{
-  background: blueviolet;
+  background: #C06E52;
 }
 
 @media (prefers-color-scheme: light) {
