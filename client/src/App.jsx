@@ -9,13 +9,12 @@ import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 
 function App() {
-  const [showNoteForm, setShowNoteForm] = useState(false)
-  const [notes, setNotes] = useState([])
-  const [editNote, setEditNote] = useState(null)
+ 
 
   return (
     <>
-      <Header setShowNoteForm={setShowNoteForm} />
+      <Header setShowNoteForm={setShowNoteForm}>
+      </Header>
 
       {showNoteForm &&
         <NoteForm
