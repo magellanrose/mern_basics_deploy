@@ -34,7 +34,7 @@ function Home() {
     if (confirmDelete) {
       // If user confirms, proceed with deletion
       await axios.delete('/api/note/' + note_id);
-      notes.splice(index, 1);
+      state.notes.splice(index, 1);
       setState({
         ...state,
         notes: [...state.notes]

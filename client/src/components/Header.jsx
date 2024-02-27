@@ -1,10 +1,14 @@
 import { NavLink } from 'react-router-dom'
+import { useStore } from '../store'
 
 
+function Header() {
+  const {state, setState} = useStore()
 
-function Header({ setShowNoteForm }) {
-  
-  const showModal = () => setShowNoteForm(true)
+  const showModal = () => setState({
+    ...state,
+    showNoteForm: true
+  })
 
   return (
     <header className='row justify-between align-center'>
