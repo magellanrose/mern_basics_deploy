@@ -7,31 +7,24 @@ import NoteForm from './components/NoteForm'
 
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
+import { useStore } from './store'
 
 function App() {
- 
+  const { state } = useStore()
 
   return (
     <>
-      <Header setShowNoteForm={setShowNoteForm}>
-      </Header>
+      <Header />
 
-      {showNoteForm &&
-        <NoteForm
-          editNote={editNote}
-          setEditNote={setEditNote}
-          setShowNoteForm={setShowNoteForm}
-          setNotes={setNotes} />}
+      {state.showNoteForm &&
+        <NoteForm />}
 
       <Routes>
         <Route
           path="/"
           element={
-            <Home
-              setShowNoteForm={setShowNoteForm}
-              setEditNote={setEditNote}
-              notes={notes}
-              setNotes={setNotes} />} />
+            <Home />} />
+
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>

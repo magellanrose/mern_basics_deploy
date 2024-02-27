@@ -1,16 +1,15 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 
-function NoteForm({
-  editNote, 
-  setEditNote, 
-  setShowNoteForm, 
-  setNotes }) {
+import { useStore } from '../store'
+
+function NoteForm() {
+  const {state, setState} = useStore()
   const [noteText, setNoteText] = useState('')
 
   useEffect(() => {
     if (editNote) {
-      setNoteText(editNote.text)
+      setNoteText(state.editNote.text)
     }
   }, [])
 
@@ -20,12 +19,13 @@ function NoteForm({
 
     
 
-    if (!editNote) {
+    if (!state.editNote) {
       const res = await axios.post('/api/notes', {
         text: noteText
       })
-      setNotes((oldState) => {
-        return [...oldState, res.data]
+      setState({
+        ...state,
+        notes: [...state.notes, res.data]
       })
     } else {
       await axios.put('/api/note', {
