@@ -2,13 +2,36 @@ const express = require('express')
 const db = require('./config/connection')
 const path = require('path')
 
+const { AplloServer } = require('@apollo/server')
+const { expressMiddleware } = require('@apollo/server/express4')
+
 const app = express()
 const PORT = process.env.PORT || 3333
 
-const api_routes = require('./routes/api_routes')
 
+// Middleware
 app.use(express.json())
 
+const typeDefs = `
+  type Query {
+    hello: String
+  }
+`
+
+const resolvers = {
+  Query: {
+    hello() {
+      return 'Hi there'
+    }
+  }
+}
+
+async function startServer() {
+  const server = new AplloServer({
+    typeDefs,
+    resolvers
+  })
+}
 
 app.use('/api', api_routes)
 
