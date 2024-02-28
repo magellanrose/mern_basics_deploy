@@ -1,5 +1,7 @@
 const router = require('express').Router()
 const api_controller = require('../controllers/api_controller')
+
+
 // Create Note
 router.post('/notes', api_controller.createNote)
 // Get all Notes
