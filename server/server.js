@@ -8,22 +8,10 @@ const { expressMiddleware } = require('@apollo/server/express4')
 const app = express()
 const PORT = process.env.PORT || 3333
 
+const {typeDefs, resolvers} = require('./schema')
 
 
 
-const typeDefs = `
-  type Query {
-    hello: String
-  }
-`
-
-const resolvers = {
-  Query: {
-    hello() {
-      return 'Hi there'
-    }
-  }
-}
 
 async function startServer() {
   const server = new ApolloServer({
