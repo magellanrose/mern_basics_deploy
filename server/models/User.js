@@ -1,10 +1,11 @@
 const { model, Schema } = require('mongoose');
-const { hash, compare } = require('bcrypt');
+// const { hash, compare } = require('bcrypt');
 
 const userSchema = new Schema(
   {
     username: {
       type: String,
+      unique: true,
       required: [true, 'You must enter a username'],
       minLength: [2, 'Your username must be at least 2 characters in length']
     },

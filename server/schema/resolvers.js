@@ -10,7 +10,14 @@ const resolvers = {
     }
   },
   Mutation: {
-    registerUser(parent) {
+    async registerUser(_, args) {
+      try {
+        const user = await User.create(args)
+
+        return user
+      } catch (err) {
+        
+      }
 
     }
   }

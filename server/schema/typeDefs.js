@@ -8,10 +8,18 @@ const typeDefs = gql `
     updatedAt: String
   }
 
+  type User {
+    _id: String 
+    username: String
+    email: String
+  }
+
   type Query {
-    hello: String
-    another: String
     getAllNotes : [Note]
+  }
+
+  type Mutation {
+    registerUser(username: String!,email: String!, password: String!): User
   }
 `
 

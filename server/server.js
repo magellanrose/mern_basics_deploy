@@ -1,4 +1,6 @@
 const express = require('express')
+const session = require('express-session')
+require('dotenv').config()
 const db = require('./config/connection')
 const path = require('path')
 
@@ -8,10 +10,7 @@ const { expressMiddleware } = require('@apollo/server/express4')
 const app = express()
 const PORT = process.env.PORT || 3333
 
-const {typeDefs, resolvers} = require('./schema')
-
-
-
+const { typeDefs, resolvers } = require('./schema')
 
 async function startServer() {
   const server = new ApolloServer({
@@ -23,6 +22,14 @@ async function startServer() {
 
   // Middleware
   app.use(express.json())
+
+  // Open session middleware
+  app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
 
   // Apollo/GraphQl MiddleWare
   app.use('/graphql', expressMiddleware(server))
