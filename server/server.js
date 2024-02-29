@@ -28,7 +28,7 @@ async function startServer() {
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { secure: false }
   }))
 
   // Apollo/GraphQl MiddleWare
